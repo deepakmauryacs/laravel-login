@@ -54,6 +54,25 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    
+     /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    protected function removeIndexPHPFromURL()
+    {
+        if (Str::contains(request()->getRequestUri(), '/index.php/')) {
+            $url = str_replace('index.php/', '', request()->getRequestUri());
+  
+            if (strlen($url) > 0) {
+                header("Location: $url", true, 301);
+                exit;
+            }
+        }
+    }
+  
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {

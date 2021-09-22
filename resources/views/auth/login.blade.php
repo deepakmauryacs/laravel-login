@@ -15,6 +15,11 @@
         <div class="container-fluid h-100">
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-6">
+                     @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                     @endif
                     <div class="authincation-content">
                         <div class="row no-gutters">
                             <div class="col-xl-12">
@@ -57,9 +62,9 @@
                                             <button type="submit" class="btn btn-primary btn-block">Sign me in</button>
                                         </div>
                                     </form>
-                                    <!-- <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary" href="./page-register.html">Sign up</a></p>
-                                    </div> -->
+                                    <div class="new-account mt-3">
+                                        <p>Don't have an account? <a class="text-primary" href="{{ route('register') }}">Sign up</a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
